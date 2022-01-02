@@ -43,57 +43,66 @@ rangeSlider.addEventListener('mousedown',()=>{
     }
 });
 
+//Mode for 5 levels of shading
+function shaderMode(item,mouseState){
+    if(mouseState===0){
+        if(item.className=="columnItem"){
+            item.classList.add("drawing1");
+            return;
+        };
+        if(item.classList.contains("drawing1")){
+            item.classList.remove("drawing1")
+            item.classList.add("drawing2")
+            return;
+        };
+        if(item.classList.contains("drawing2")){
+            item.classList.remove("drawing2");
+            item.classList.add("drawing3");
+            return;
+        };
+            
+        if(item.classList.contains("drawing3")){   
+            item.classList.remove("drawing3");                 
+            item.classList.add("drawing4");
+            return;
+        };
+
+        if(item.classList.contains("drawing4")){
+            item.classList.remove("drawing4");
+            item.classList.add("drawing5");
+            return;
+        };
+    }
+    if(mouseState===1){
+        item.className="columnItem drawing5";
+    }
+};
+
 //Detects current number of squares and assigns listener to 
 //each one
-let c=1;
 function drawing(){
     let boardContainer = document.getElementById("boardContainer");
     let pixels = document.querySelectorAll('.columnItem');
 
+    let mouseState = 0;
+
     boardContainer.addEventListener('mousedown',()=>{
-            pixels.forEach(function(item){
-                item.addEventListener('mouseover',()=>{
-                    item.className="columnItem drawing5";
-                });
-            });    
+        mouseState = 1; 
+    });
+    
+    boardContainer.addEventListener('mouseup',()=>{
+        mouseState = 0;
     });
 
-    boardContainer.addEventListener('mouseup',()=>{
-        pixels.forEach(function(item){
-            item.addEventListener('mouseover',()=>{
-                if(item.className!="columnItem"){
-                    item.className="columnItem";
-                    item.classList.add("drawing1")
-                    return;
-                };
-                if(item.classList.contains("drawing1")){
-                    item.classList.remove("drawing1")
-                    item.classList.add("drawing2")
-                    return;
-                };
+    pixels.forEach(function(item){
+        item.addEventListener('mouseover',()=>{
+            shaderMode(item,mouseState);
+        });
+    }); 
     
-                if(item.classList.contains("drawing2")){
-                    item.classList.remove("drawing2");
-                    item.classList.add("drawing3");
-                    return;
-                };
-                
-                if(item.classList.contains("drawing3")){
-                    item.classList.remove("drawing3");
-                    item.classList.add("drawing4");
-                    return;
-                };
-    
-                if(item.classList.contains("drawing4")){
-                    item.classList.remove("drawing4");
-                    item.classList.add("drawing5");
-                    return;
-                };
-            });
-        }); 
-    });
 
 };
+
 //First, a loop creates the containers of the given width. Then,
 //the containers are given children of the same number to create 
 //the squares of the sketchboard.
