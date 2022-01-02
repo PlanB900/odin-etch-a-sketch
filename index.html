@@ -7,14 +7,31 @@
     </head>
 
 <body>
-<h1>Etch-a-Sketch</h1>
-<div id="boardContainer">
+<h1 class="title">Etch-a-Sketch</h1>
+<div class='container'>
+    <div class="filler1">
 
+        <div class="instructions">
+            Mouse-over: Shading <br/>
+            Hold left click: Dark lines <br/>
+            Hold right click: Eraser <br/>
+        </div>
+
+    </div>
+    <div class="container1">
+
+        <div class="slideContainer">
+            <div>Slide to increase or decrease pixel size.</div>
+            <input type="range" min="1" max="100" value="50"
+            class="slider" id="mySlider">
+        </div>
+        <div id="boardContainer"></div>
+
+    </div>
+
+    <div class="filler2">&nbsp</div>
 </div>
-<div class="slidecontainer">
-    <input type="range" min="1" max="100" value="50"
-    class="slider" id="mySlider">
-</div>
+
 
 
 

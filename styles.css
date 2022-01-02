@@ -1,3 +1,14 @@
+body {
+    background-color:#e6dc9e;
+}
+
+.title {
+    display:flex;
+    justify-content:center;
+
+    font-size: 65px;
+}
+
 #boardContainer {
     height:960px;
     width:960px;
@@ -7,8 +18,47 @@
 
     display:flex;
     flex-flow:row nowrap;
+    justify-content:center;
 
     background-color:white;
+}
+
+
+.container{
+    display:flex;
+    flex-flow: row nowrap;
+    justify-content:space-around;
+}
+
+.slideContainer{
+    display:flex;
+    flex-flow:column nowrap;
+    align-items:center;
+}
+
+.filler1{
+    width:600px;
+    
+    display:flex;
+    flex-flow: row nowrap;
+    justify-content:center;
+    align-items:center;
+}
+.instructions{
+    font-size:40px;
+}
+.filler2{
+    width:600px;
+}
+
+
+.container1 {
+    width:1000px;
+    height:1000px;
+    display:flex;
+    flex-flow:column nowrap;
+    justify-content:center;
+    align-items:center;
 }
 
 .rowItem {
@@ -45,3 +95,10 @@
 .drawing5 {
     background-color:#000000;
 }
+
+
+.slider{
+    width:800px;
+    height:80px;
+}
+

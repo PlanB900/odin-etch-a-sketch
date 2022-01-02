@@ -76,6 +76,11 @@ function shaderMode(item,mouseState){
     if(mouseState===1){
         item.className="columnItem drawing5";
     }
+    if(mouseState===2){
+        if(item.className!=="columnItem"){
+            item.className="columnItem";
+        };
+    };
 };
 
 //Detects current number of squares and assigns listener to 
@@ -86,19 +91,38 @@ function drawing(){
 
     let mouseState = 0;
 
-    boardContainer.addEventListener('mousedown',()=>{
-        mouseState = 1; 
+    boardContainer.addEventListener('contextmenu', e => e.preventDefault());
+
+    boardContainer.addEventListener('mousedown',(e)=>e.preventDefault());
+
+    boardContainer.addEventListener('mousedown',(e)=>{
+        if(e.button === 0){
+            mouseState = 1; 
+        };
+        if(e.button === 2){
+            mouseState = 2;
+        };
     });
     
     boardContainer.addEventListener('mouseup',()=>{
         mouseState = 0;
     });
 
+    boardContainer.addEventListener('shiftKey',()=>{
+        console.log("hi");
+        mouseState = 2;
+    });
+
+
     pixels.forEach(function(item){
         item.addEventListener('mouseover',()=>{
             shaderMode(item,mouseState);
         });
     }); 
+
+    boardContainer.addEventListener('mousedown',(e=>{
+        console.log(e);
+    }))
     
 
 };
