@@ -1,0 +1,47 @@
+#boardContainer {
+    height:960px;
+    width:960px;
+
+    border-color:black;
+    border-style:solid;
+
+    display:flex;
+    flex-flow:row nowrap;
+
+    background-color:white;
+}
+
+.rowItem {
+    display:flex;
+    flex-flow:column nowrap;
+    flex:1;
+
+    border-color:black;
+    border-width:1px;
+    border-style:none;
+}
+
+.columnItem {
+    display:flex;
+    flex:1;
+
+    border-width:1px;
+    border-color:red;
+    border-style:none;
+}
+
+.drawing1 {
+    background-color:#bdbdbd;
+}
+.drawing2 {
+    background-color:#a1a1a1;
+}
+.drawing3 {
+    background-color:#696969;
+}
+.drawing4 {
+    background-color:#303030;
+}
+.drawing5 {
+    background-color:#000000;
+}
